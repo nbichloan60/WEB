@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "katex/dist/katex.min.css";
+
+@layer base {
+  :root {
+    --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.6);
+}
+
+/* Gradient themes */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #4A90E2 0%, #FF9500 100%);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #4A90E2 0%, #FF9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gradient-primary {
+  border-image: linear-gradient(135deg, #4A90E2 0%, #FF9500 100%) 1;
+}
+
+/* Animated Mesh Background */
+.mesh-bg {
+  background-color: transparent;
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(74, 144, 226, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 149, 0, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.1) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: mesh-movement 15s ease infinite alternate;
+}
+
+.dark .mesh-bg {
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(74, 144, 226, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 149, 0, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.15) 0px, transparent 50%);
+}
+
+@keyframes mesh-movement {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
